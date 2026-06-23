@@ -1,0 +1,555 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kanika Portfolio</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="icon" type="image/png" sizes="16*16" href="assets/Elegant logo design .png">
+
+
+<style>
+:root {
+  --accent: #38bdf8;
+  --border: rgba(148,163,184,0.2);
+  --text: #f1f5f9;
+  --text-muted: #94a3b8;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: #0f172a; overflow-x: hidden; font-family: 'Segoe UI', system-ui, sans-serif; }
+img { max-width: 100%; height: auto; }
+
+/* NAVBAR */
+.navbar { background: #1420274d; padding: 15px 0; backdrop-filter: blur(10px); height: 105px; }
+.logo { width: 223px; max-width: 100%; margin-top: 15px; }
+.navbar-toggler { border: 1px solid rgba(46,158,215,0.5); }
+.navbar-toggler-icon { background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255,255,255,0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); }
+.navbar-nav .nav-link { color: white !important; font-weight: 500; transition: all 0.3s ease; padding: 8px 15px !important; }
+.navbar-nav .nav-link:hover { color: #2e9ed7 !important; transform: translateY(-2px); }
+.navbar-nav .nav-item { position: relative; }
+.navbar-nav .nav-item::after { content: ""; position: absolute; left: 15px; bottom: 0; width: 0; height: 2px; background-color: #2e9ed7; transition: width 0.3s ease; }
+.navbar-nav .nav-item:hover::after { width: calc(100% - 30px); }
+
+/* HERO */
+.portfolio-image { width: 420px; max-width: 100%; border-radius: 50%; border: 8px solid #0a1219; box-shadow: 0 10px 30px rgba(0,0,0,0.5); transition: transform 0.5s ease; }
+.portfolio-image:hover { transform: scale(1.05); }
+.row.align-items-center {
+    margin-top: 40px;
+}
+.typing { border-right: 2px solid #007BFF; color: #2e9ed7; font-size: 23px; font-weight: 400; }
+button.one, button.two { height: 50px; border-radius: 60px; font-weight: 600; transition: all 0.3s ease; cursor: pointer; }
+button.one { background: #1387c1; color: white; border: none; width: 150px; text-decoration: none;}
+button.two { background: transparent; color: #1387c1; border: 2px solid #1387c1; width: 223px; text-decoration: none; }
+button.one:hover { background-color: black; color: #0b6d9f; border: 3px solid #0b6d9f; box-shadow: 3px 3px 5px rgba(0,0,0,0.5); }
+button.two:hover { background-color: #0b6d9f; color: white; border: none; box-shadow: 3px 3px 5px rgba(0,0,0,0.5); }
+.social-icon { color: #adadad; background-color: transparent; width: 43px; height: 42px; line-height: 42px; font-size: 20px; border: 1px solid #adadad; border-radius: 50%; text-align: center; transition: all 0.3s ease; display: inline-block; text-decoration: none; }
+.social-icon:hover { color: white; border-color: #2e9ed7; background-color: #2e9ed7; transform: translateY(-3px); }
+
+/* SECTION HEADERS */
+.section-title { color: white; font-size: 3.6rem; font-weight: 400; line-height: 1.2; margin-bottom: 1.5rem; text-align: center; letter-spacing: 1px; }
+.section-subtitle { color: #d5dde5; font-size: 16px; text-align: center; font-weight: 400; margin-bottom: 40px; font-style: italic; }
+
+/* ABOUT */
+.about-text { color: #c7d0d5; font-weight: 500; letter-spacing: 0.5px; line-height: 1.6; font-size: 16px; }
+.about-text p { margin-bottom: 15px; }
+
+/* EXPERTISE */
+.expertise-section { padding: 80px 0; background: linear-gradient(135deg, rgba(46,158,215,0.05) 0%, transparent 100%); border-top: 1px solid var(--border); }
+.service-card { background: rgba(26,40,71,0.6); border: 1px solid var(--border); border-radius: 12px; padding: 2rem; transition: all 0.3s ease; display: flex; flex-direction: column; height: 100%; position: relative; overflow: hidden; }
+.service-card::before { content: ""; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: linear-gradient(90deg, transparent, rgba(56,189,248,0.1), transparent); transition: left 0.6s ease; }
+.service-card:hover::before { left: 100%; }
+.service-card:hover { background: rgba(26,40,71,0.9); border-color: var(--accent); transform: translateY(-8px); box-shadow: 0 20px 40px rgba(19,135,193,0.2); }
+.service-icon { font-size: 2.5rem; color: var(--accent); margin-bottom: 1rem; transition: transform 0.3s ease; }
+.service-card:hover .service-icon { transform: scale(1.1); }
+.service-card h4 { font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--text); font-weight: 600; }
+.service-card p { color: var(--text-muted); font-size: 0.95rem; line-height: 1.6; }
+
+/* SKILLS */
+.skill-container { margin-bottom: 25px; }
+.skill-label { margin-bottom: 5px; font-weight: bold; color: white; font-size: 18px; }
+.skill-bar { background: #1e2a35; border-radius: 25px; overflow: hidden; height: 19px; width: 100%; }
+.skill-level { height: 95%; text-align: right; padding-right: 4px; line-height: 20px; color: #fff; border-radius: 25px; background-color: #2db3e9; font-size: 13px;
+    font-weight: 800;}
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: var(--text);
+}
+/* FEATURED WORK */
+.featured-section { padding: 80px 0; background: #0f172a; }
+.fw-filter-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; margin-bottom: 50px; }
+.fw-filter-btn { background: transparent; color: #94a3b8; border: 2px solid rgba(148,163,184,0.3); padding: 10px 24px; font-size: 13px; font-weight: 700; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; border-radius: 50px; transition: all 0.3s ease; }
+.fw-filter-btn.active { background: #38bdf8; color: #0f172a; border-color: #38bdf8; }
+.fw-filter-btn:hover:not(.active) { border-color: #38bdf8; color: #38bdf8; }
+.fw-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 28px; }
+.fw-card { position: relative; border-radius: 16px; overflow: hidden; height: 260px; cursor: pointer; }
+.fw-card.hide { display: none; }
+.fw-card-img-wrapper { width: 100%; height: 100%; }
+.fw-card-img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s ease; display: block; }
+.fw-card:hover .fw-card-img { transform: scale(1.08); }
+.fw-card-name { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(10,18,40,0.95), transparent); padding: 30px 20px 16px; color: #ffffff; font-size: 1.1rem; font-weight: 700; transition: opacity 0.3s ease; }
+.fw-card:hover .fw-card-name { opacity: 0; }
+.fw-overlay { position: absolute; inset: 0; background: rgba(8,18,40,0.92); display: flex; flex-direction: column; justify-content: center; padding: 28px; opacity: 0; transition: opacity 0.35s ease; }
+.fw-card:hover .fw-overlay { opacity: 1; }
+.fw-overlay h3 { color: #38bdf8; font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+.fw-overlay p { color: #cbd5e1; font-size: 0.88rem; line-height: 1.6; margin-bottom: 14px; }
+.fw-tags { display: flex; flex-wrap: wrap; gap: 7px; margin-bottom: 14px; }
+.fw-tag { background: rgba(56,189,248,0.15); color: #38bdf8; border: 1px solid rgba(56,189,248,0.35); padding: 3px 11px; border-radius: 50px; font-size: 11px; font-weight: 600; }
+.fw-view-link { color: #38bdf8; font-size: 13px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 5px; transition: gap 0.2s ease; }
+.fw-view-link:hover { color: #7dd3fc; gap: 10px; }
+
+/* CTA */
+.cta-section { padding: 100px 20px; background: #0d1729; border-top: 1px solid rgba(148,163,184,0.1); border-bottom: 1px solid rgba(148,163,184,0.1); text-align: center; }
+.cta-section h2 { color: #ffffff; font-size: 3rem; font-weight: 700; margin-bottom: 20px; font-family: Georgia, serif; }
+.cta-section p { color: #94a3b8; font-size: 1.05rem; max-width: 500px; margin: 0 auto 40px; line-height: 1.7; }
+.cta-btn { display: inline-flex; align-items: center; gap: 10px; background: #38bdf8; color: #0f172a; padding: 16px 36px; border-radius: 50px; font-size: 16px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; }
+.cta-btn:hover { background: #0ea5e9; color: #fff; transform: translateY(-3px); box-shadow: 0 12px 30px rgba(56,189,248,0.35); }
+
+/* FOOTER */
+.footer { background: #0f172a; padding: 60px 20px 30px; text-align: center; color: #cbd5f5; }
+.footer h2 { color: #ffffff; font-size: 32px; margin-bottom: 8px; }
+.footer-socials { display: flex; justify-content: center; gap: 18px; margin: 20px 0 25px; }
+.footer-socials a { width: 44px; height: 44px; border: 1px solid #94a3b8; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #cbd5f5; font-size: 18px; transition: 0.3s ease; text-decoration: none; }
+.footer-socials a:hover { background: #38bdf8; color: #0f172a; border-color: #38bdf8; transform: translateY(-4px); }
+.footer-line { display: block; width: 100%; max-width: 600px; height: 1px; background: rgba(148,163,184,0.2); margin: 25px auto; }
+.copyright { font-size: 13px; color: #94a3b8; }
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .section-title { font-size: 2.5rem; }
+  .portfolio-image { width: 314px; height: 300px; margin-top: 30px; }
+  img.logo { margin-top: -86px; }
+  .navbar-nav { text-align: center; background: rgba(20,32,39,0.95); border-radius: 10px; padding: 15px; margin-top: 15px; }
+  .social-icons-container { justify-content: center !important; margin-top: 15px;         background: rgb(20 32 39 / 95%);
+        padding: 5px;}
+  button.one, button.two { width: 140px; margin-bottom: 10px; }
+  .service-card { height: auto; min-height: 220px; margin-bottom: 20px; }
+  .cta-section h2 { font-size: 2rem; }
+  .bar {
+    display: flex;
+    justify-content: center;
+}
+  button.one, button.two {
+    width: 366px;
+    margin-bottom: 13px;
+    margin-left: 65px;
+}
+button.navbar-toggler {
+    margin-top: -93px;
+}
+}
+
+.portfolio-about-image {
+  border-radius: 10px;
+  height: 75%;
+}
+
+a.work {
+  text-decoration: none !important; color: white !important;
+}
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#">
+      <img class ="logo" src ="assets/logo-1.png">
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span c
+      +3
+     
+      lass="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav mx-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
+        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+        <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+      <div class="social-icons-container d-flex gap-2">
+        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="home" class="py-5 mt-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6 text-center text-md-start">
+        <h1 style="color:white;font-size:3.5rem;font-weight:700;">
+          Hello, I'm <span style="color:#2e9ed7;">Kanika<br>Manchal</span>
+        </h1>
+        <h2 style="font-size:1.8rem;color:#cfcfcf;min-height:60px;">
+          Creative <span class="typing"></span>
+        </h2>
+        <p style="color:#c1c9d1;font-size:17px;padding-top:20px;">
+          Welcome to my digital space! I design intuitive websites and interfaces
+          that connect ideas with people. Creativity and strategy guide every
+          step of my process. Let's build meaningful experiences together,
+          one design at a time.
+        </p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <button class="one"><a href="#projects" class="work">View my work</a></button>
+          <button class="two">Get in Touch</button>
+        </div>
+       <div class="bar">
+        <div class="d-flex gap-3 mt-4">
+          <a href="#" class="social-icon"><i class="fa-brands fa-twitter"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="#" class="social-icon"><i class="fa-brands fa-github"></i></a>
+        </div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 text-center mt-5 mt-md-0">
+        <img class="portfolio-image" src="assets/bg.jpeg" alt="Kanika Manchal">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="py-5">
+  <div class="container">
+    <h2 class="section-title">About</h2>
+    <p class="section-subtitle">"I believe design should feel effortless — blending clarity, empathy, and creativity to craft experiences that truly connect."</p>
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6">
+        <p style="color:#b9bfc5;font-size:12px;letter-spacing:2px;">HELLO THERE</p>
+        <h3 style="color:#dfe8f1;font-size:2.5rem;line-height:1.2;margin-bottom:1.5rem;">
+          Hi, I'm Kanika - "Turning imagination into interactive journeys across the web."
+        </h3>
+        <div class="about-text">
+          <p>I'm Kanika, a multi-skilled creative technologist passionate about blending design and functionality. Currently pursuing a Bachelor of Computer Applications (BCA), I combine academic learning with hands-on industry exposure.</p>
+          <p>My background includes +2 in Biology and four years of industrial training in ITeS, which strengthened my analytical and professional skills. As a Web &amp; Graphic Designer, I specialize in HTML, CSS, Bootstrap, Photoshop, Canva, and branding.</p>
+          <p>I also bring UI/UX expertise in Figma, typography, and wireframing to craft intuitive digital experiences. My goal is to design and develop solutions that are authentic, functional, and impactful.</p>
+        </div>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+          <button class="one"><a href="#projects" class="work">View my work</a></button>
+<button class="two"><a href="kanika-resume.pdf" class="work">
+    <i class="fa-solid fa-download me-2"></i> Download Resume
+</a></button>
+        </div>
+      </div>
+      <div class="col-12 col-md-6 text-center mt-5 mt-md-0">
+         <img class="portfolio-image" src="assets/bg.jpeg" alt="Kanika Manchal">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERTISE -->
+<section id="expertise" class="expertise-section">
+  <div class="container">
+    <h2 class="section-title">Expertise</h2>
+    <p class="section-subtitle">Building clean, meaningful digital experiences through thoughtful code and intuitive design.</p>
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-code"></i></div>
+          <h4>Web Design</h4>
+          <p class="mb-3" style="color:#94a3b8;font-size:0.9rem;">HTML, CSS, Bootstrap</p>
+          <p>Crafting responsive, user-friendly websites that balance clean design with seamless functionality.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-pen-nib"></i></div>
+          <h4>UI/UX Design</h4>
+          <p class="mb-3" style="color:#94a3b8;font-size:0.9rem;">Figma, Wireframes, Typography</p>
+          <p>Designing intuitive interfaces and experiences that put users at the center of everything.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-palette"></i></div>
+          <h4>Graphic Design</h4>
+          <p class="mb-3" style="color:#94a3b8;font-size:0.9rem;">Photoshop, Canva, Branding</p>
+          <p>Creating impactful visuals and brand identities that communicate clearly across all platforms.</p>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-3">
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+          <h4>SEO Optimization</h4>
+          <p class="mb-3" style="color:#94a3b8;font-size:0.9rem;">Keywords, Performance, Metadata</p>
+          <p>Enhancing search rankings through strategic on-page optimization and technical improvements.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="py-5">
+  <div class="container">
+    <h2 class="section-title">Skills</h2>
+    <p class="section-subtitle">"My skill set reflects both hands-on experience and a passion for continuous learning."</p>
+    <div class="row">
+      <div class="col-12 col-md-6">
+        <div class="skill-container">
+          <div class="skill-label">HTML</div>
+          <div class="skill-bar"><div class="skill-level" style="width:95%">95%</div></div>
+        </div>
+        <div class="skill-container">
+          <div class="skill-label">CSS</div>
+          <div class="skill-bar"><div class="skill-level" style="width:80%">80%</div></div>
+        </div>
+        <div class="skill-container">
+          <div class="skill-label">JavaScript</div>
+          <div class="skill-bar"><div class="skill-level" style="width:65%">65%</div></div>
+        </div>
+        <div class="skill-container">
+          <div class="skill-label">Bootstrap</div>
+          <div class="skill-bar"><div class="skill-level" style="width:85%">85%</div></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="skill-container">
+          <div class="skill-label">Figma</div>
+          <div class="skill-bar"><div class="skill-level" style="width:85%">85%</div></div>
+        </div>
+        <div class="skill-container">
+          <div class="skill-label">Photoshop</div>
+          <div class="skill-bar"><div class="skill-level" style="width:70%">70%</div></div>
+        </div>
+        <div class="skill-container">
+          <div class="skill-label">Canva</div>
+          <div class="skill-bar"><div class="skill-level" style="width:80%">80%</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED WORK -->
+<section id="projects" class="featured-section">
+  <div class="container">
+    <h2 class="section-title">Featured Work</h2>
+    <p class="section-subtitle">A selection of projects that showcase my design and development skills.</p>
+    <div class="fw-filter-container">
+      <button class="fw-filter-btn active" data-target="all">All Projects</button>
+      <button class="fw-filter-btn" data-target="webdesign">Web Design</button>
+      <button class="fw-filter-btn" data-target="uiux">UI/UX</button>
+      <button class="fw-filter-btn" data-target="graphic">Graphic Design</button>
+    </div>
+    <div class="fw-grid">
+
+      <div class="fw-card" data-category="webdesign">
+        <div class="fw-card-img-wrapper">
+          <img class="fw-card-img" src="assets/hotel-booking.jpg" alt="Landing Page">
+        </div>
+        <div class="fw-card-name">Hotel booking</div>
+        <div class="fw-overlay">
+          <h3>Hotel Booking Page</h3>
+          <p>A responsive and user-friendly frontend for a restaurant booking system, built using HTML, CSS, and JavaScript, allowing users to easily register, login, and reserve tables online.</p>
+          <div class="fw-tags">
+            <span class="fw-tag">HTML</span>
+            <span class="fw-tag">CSS</span>
+            <span class="fw-tag">JavaScript</span>
+          </div>
+          <a href="https://github.com/kanikamanchal/bookhotel" class="fw-view-link">View Project </a>
+        </div>
+      </div>
+
+      <div class="fw-card" data-category="webdesign">
+        <div class="fw-card-img-wrapper">
+          <img class="fw-card-img" src="assets/nova.png" alt="Web">
+        </div>
+        <div class="fw-card-name">Novafit</div>
+        <div class="fw-overlay">
+          <h3>Novafit</h3>
+          <p>This project is a responsive Gym Website (NovaFit) built using HTML, CSS, and JavaScript. It provides a modern and user-friendly interface where users can explore fitness services, workout sections.</p>
+          <div class="fw-tags">
+            <span class="fw-tag">HTML</span>
+            <span class="fw-tag">CSS</span>
+            <span class="fw-tag">JavaScript</span>
+          </div>
+          <a href="https://github.com/kanikamanchal/novafit" class="fw-view-link">View Project &#8594;</a>
+        </div>
+      </div>
+
+      <div class="fw-card" data-category="webdesign">
+        <div class="fw-card-img-wrapper">
+          <img class="fw-card-img" src="assets/clothing.png" alt="Social Media">
+        </div>
+        <div class="fw-card-name">Moon clothing</div>
+        <div class="fw-overlay">
+          <h3>Moon clothing</h3>
+          <p>A modern luxury clothing eCommerce website built using HTML, CSS, JavaScript, and Bootstrap with cart system, product filtering, and responsive UI.</p>
+          <div class="fw-tags">
+            <span class="fw-tag">Html</span>
+            <span class="fw-tag">CSS</span>
+            <span class="fw-tag">Javascript</span>
+          </div>
+          <a href="https://github.com/kanikamanchal/moon-clothing" class="fw-view-link">View Project &#8594;</a>
+        </div>
+      </div>
+
+      <div class="fw-card" data-category="uiux">
+        <div class="fw-card-img-wrapper">
+          <img class="fw-card-img" src="assets/figma-hopeline.png" alt="Brand Identity">
+        </div>
+        <div class="fw-card-name">hopeline splash screens</div>
+        <div class="fw-overlay">
+          <h3>hopeline splash screens</h3>
+          <p>This project presents a UI design created in Figma and exported as PNG images. It demonstrates a clean layout, modern design elements, and a user-friendly interface. The repository is for design preview purposes and serves as a base for future development into a fully functional web application using code.</p>
+          <div class="fw-tags">
+            <span class="fw-tag">Figma</span>
+            <span class="fw-tag">Branding</span>
+            <span class="fw-tag">Typography</span>
+          </div>
+          <a href="https://github.com/kanikamanchal/figma-hopeline/tree/main" class="fw-view-link">View Project &#8594;</a>
+        </div>
+      </div>
+
+      <div class="fw-card" data-category="graphic">
+        <div class="fw-card-img-wrapper">
+          <img class="fw-card-img" src="assets/smoothie mockup.png" alt="Dashboard">
+        </div>
+        <div class="fw-card-name">Smoothies mockup</div>
+        <div class="fw-overlay">
+          <h3>smoothies mockup</h3>
+          <p>Modern and visually appealing smoothie website UI mockup designed in photoshop with a clean layout and user-friendly experience.</p>
+          <div class="fw-tags">
+            <span class="fw-tag">Photoshop</span>
+            <span class="fw-tag">UI design</span>
+            <span class="fw-tag">Canva</span>
+          </div>
+          <a href="https://github.com/kanikamanchal/smoothie-mockup" class="fw-view-link">View Project &#8594;</a>
+        </div>
+      </div>
+
+      <div class="fw-card" data-category="webdesign">
+        <div class="fw-card-img-wrapper">
+          <img class="fw-card-img" src="assets/animation.png" alt="Creative Portfolio">
+        </div>
+        <div class="fw-card-name">crazy effect slider</div>
+        <div class="fw-overlay">
+          <h3>Crazy effect slider</h3>
+          <p>Crazy Effects Image Slider built with pure HTML, CSS & JavaScript — auto-play, thumbnails, animations, countdown bar, fully responsive.</p>
+          <div class="fw-tags">
+            <span class="fw-tag">html</span>
+            <span class="fw-tag">CSS</span>
+            <span class="fw-tag">JS</span>
+          </div>
+          <a href="https://github.com/kanikamanchal/animation" class="fw-view-link">View Project &#8594;</a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA CONTACT -->
+<section class="cta-section" id="contact">
+  <h2>Let's Create Something Great</h2>
+  <p>I'm always interested in hearing about new projects and opportunities. Feel free to reach out if you'd like to collaborate!</p>
+  <a href="mailto:kanikamanchal909@gmail.com" class="cta-btn">
+    <i class="fa-solid fa-envelope"></i> Get in Touch
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <h2>Kanika Manchal</h2>
+  <p>Designing meaningful digital experiences with clarity &amp; creativity.</p>
+  <div class="footer-socials">
+    <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+    <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+    <a href="#" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+    <a href="#" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+  </div>
+  <span class="footer-line"></span>
+  <p class="copyright">&copy; 2026 Kanika Manchal. All rights reserved.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ===== TYPING ANIMATION =====
+var roles = [
+  "Website Designer",
+  "UI/UX & Brand Designer",
+  "Frontend Developer",
+  "HTML & CSS Expert",
+  "Figma & Photoshop Pro",
+  "Bootstrap Grid Specialist"
+];
+var roleIndex = 0;
+var charIndex = 0;
+var isDeleting = false;
+var typingEl = document.querySelector(".typing");
+
+function typeEffect() {
+  if (!typingEl) return;
+  var current = roles[roleIndex];
+  if (isDeleting) {
+    charIndex--;
+    typingEl.textContent = current.substring(0, charIndex);
+    if (charIndex <= 0) {
+      isDeleting = false;
+      roleIndex = (roleIndex + 1) % roles.length;
+    }
+  } else {
+    charIndex++;
+    typingEl.textContent = current.substring(0, charIndex);
+    if (charIndex >= current.length) {
+      isDeleting = true;
+      setTimeout(typeEffect, 1200);
+      return;
+    }
+  }
+  setTimeout(typeEffect, isDeleting ? 50 : 110);
+}
+typeEffect();
+
+// ===== FILTER =====
+var filterBtns = document.querySelectorAll(".fw-filter-btn");
+var fwCards = document.querySelectorAll(".fw-card");
+
+filterBtns.forEach(function(btn) {
+  btn.addEventListener("click", function() {
+    filterBtns.forEach(function(b) { b.classList.remove("active"); });
+    this.classList.add("active");
+    var target = this.getAttribute("data-target");
+    fwCards.forEach(function(card) {
+      if (target === "all" || card.getAttribute("data-category") === target) {
+        card.classList.remove("hide");
+      } else {
+        card.classList.add("hide");
+      }
+    });
+  });
+});
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(function(a) {
+  a.addEventListener("click", function(e) {
+    var href = this.getAttribute("href");
+    if (href === "#") return;
+    var el = document.querySelector(href);
+    if (!el) return;
+    e.preventDefault();
+    window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+    var nc = document.querySelector(".navbar-collapse");
+    if (nc && nc.classList.contains("show")) {
+      document.querySelector(".navbar-toggler").click();
+    }
+  });
+});
+</script>
+</body>
+</html>
