@@ -157,6 +157,24 @@ a.work {
   text-decoration: none !important; color: white !important;
 }
 
+
+/* ===== ADDED: INTERNSHIP & TRAINING ===== */
+.internship-section{padding:80px 0;background:#0f172a;border-top:1px solid var(--border);}
+.training-card{height:100%;padding:35px;background:rgba(26,40,71,.6);border:1px solid var(--border);border-radius:12px;transition:all .3s ease;position:relative;overflow:hidden;}
+.training-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 20px 40px rgba(19,135,193,.2);}
+.training-icon{width:60px;height:60px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:rgba(56,189,248,.1);color:var(--accent);font-size:25px;margin-bottom:20px;}
+.training-type{display:inline-block;color:#38bdf8;font-size:12px;font-weight:700;letter-spacing:1.5px;margin-bottom:10px;}
+.training-card h3{color:#fff;font-size:1.5rem;margin-bottom:8px;}
+.training-card h5{color:#cbd5e1;font-size:1rem;margin-bottom:12px;}
+.training-duration{color:#94a3b8;font-size:14px;}
+.training-card>p{color:#94a3b8;line-height:1.7;}
+.training-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:20px;}
+.training-tags span{padding:6px 12px;border-radius:50px;background:rgba(56,189,248,.1);border:1px solid rgba(56,189,248,.25);color:#38bdf8;font-size:12px;font-weight:600;}
+/* Keep original design, only improve responsiveness */
+@media (max-width:991.98px){.navbar{height:auto;min-height:85px}.navbar-nav{padding:10px 0}.social-icons-container{justify-content:center;margin:10px 0}.portfolio-image{width:min(420px,80vw)}.fw-grid{grid-template-columns:repeat(2,minmax(0,1fr));}.section-title{font-size:clamp(2.4rem,7vw,3.6rem);}}
+@media (max-width:767.98px){body{overflow-x:hidden}.navbar{padding:12px 0}.logo{width:190px;margin-top:0!important}.navbar-toggler{margin-top:0!important}.navbar-nav .nav-link{padding:10px!important}.navbar-nav .nav-item::after{display:none}.social-icons-container{padding:8px}.row.align-items-center{margin-top:20px}.portfolio-image{width:min(320px,82vw);height:auto;margin-top:20px}.hero-animate h1{}.section-title{font-size:clamp(2.2rem,10vw,2.8rem)}.about-text{font-size:15px}.training-card{padding:25px}.fw-grid{grid-template-columns:1fr;gap:20px}.fw-card{height:280px}.fw-filter-container{gap:8px;margin-bottom:35px}.fw-filter-btn{padding:9px 15px;font-size:11px}.cta-section{padding:70px 20px}.cta-section h2{font-size:clamp(2rem,9vw,3rem)}button.one,button.two{width:100%;max-width:360px;margin-left:0!important}.d-flex.flex-wrap.gap-3.mt-4.hero-animate{justify-content:center}.bar{justify-content:center!important}.skill-label{font-size:16px}}
+@media (max-width:380px){.logo{width:165px}.portfolio-image{width:78vw}.training-card{padding:20px}.fw-card{height:250px}.fw-overlay{padding:20px}.fw-overlay p{font-size:.8rem}}
+
 /* ===== ANIMATIONS ===== */
 
 /* Hero entrance */
@@ -216,7 +234,7 @@ a.work {
 <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
   <div class="container">
     <a class="navbar-brand" href="#">
-      <img class ="logo" src ="assets/logo-1.png">
+      <img class="logo" src="assets/logo-1.png" alt="Kanika Manchal Logo">
     </a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <span class="navbar-toggler-icon"></span>
@@ -225,6 +243,7 @@ a.work {
       <ul class="navbar-nav mx-auto">
         <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#internship">Internship</a></li>
         <li class="nav-item"><a class="nav-link" href="#resume">Resume</a></li>
         <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
@@ -293,8 +312,7 @@ a.work {
         </div>
         <div class="d-flex flex-wrap gap-3 mt-4" id="resume">
           <button class="one"><a href="#projects" class="work">View my work</a></button>
-<button class="two"><a href="Kanika_Manchal_CV.pdf.pdf
-  " class="work" target="_blank" rel="noopener" download="Kanika-Manchal-Resume.pdf">
+<button class="two"><a href="Kanika_Manchal_CV.pdf" class="work" target="_blank" rel="noopener" download="Kanika-Manchal-Resume.pdf">
     <i class="fa-solid fa-download me-2"></i> Download Resume
 </a></button>
         </div>
@@ -306,10 +324,65 @@ a.work {
   </div>
 </section>
 
+
+<!-- INTERNSHIP & TRAINING -->
+<section id="internship" class="internship-section reveal">
+  <div class="container">
+    <h2 class="section-title">Internship &amp; Training</h2>
+    <p class="section-subtitle">Practical experience, academic learning and professional training that have shaped my technical journey.</p>
+    <div class="row g-4 justify-content-center">
+      <div class="col-12 col-md-6">
+        <div class="training-card">
+          <div class="training-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <span class="training-type">INTERNSHIP</span>
+          <h3>Web Development Internship</h3>
+          <h5>WebCodeft Technologies, Hamirpur</h5>
+          <p class="training-duration"><i class="fa-regular fa-calendar"></i> 10 July 2025 – 31 July 2026</p>
+          <p>Completed Web Development internship training at WebCodeft Technologies, Hamirpur, gaining practical industry exposure and strengthening my web development skills.</p>
+          <div class="training-tags"><span>Web Development</span><span>HTML</span><span>CSS</span><span>PHP</span><span>MySQL</span><span>WordPress</span></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="training-card">
+          <div class="training-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+          <span class="training-type">EDUCATION</span>
+          <h3>Bachelor of Computer Applications</h3>
+          <h5>BCA</h5>
+          <p class="training-duration"><i class="fa-regular fa-calendar"></i> 2025 – 2028</p>
+          <p>Currently pursuing a Bachelor of Computer Applications (BCA), developing knowledge in programming, computer applications, web development, databases and software technologies.</p>
+          <div class="training-tags"><span>BCA</span><span>Programming</span><span>Web Development</span><span>Database</span></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="training-card">
+          <div class="training-icon"><i class="fa-solid fa-certificate"></i></div>
+          <span class="training-type">CERTIFICATION</span>
+          <h3>Web Developer Certification</h3>
+          <h5>WebCodeft Technologies</h5>
+          <p class="training-duration"><i class="fa-solid fa-award"></i> Web Developer Certification</p>
+          <p>Web Developer certification from WebCodeft Technologies, supporting my practical learning and training in web development.</p>
+          <div class="training-tags"><span>Web Developer</span><span>Web Development</span><span>Web Technologies</span></div>
+        </div>
+      </div>
+      <div class="col-12 col-md-6">
+        <div class="training-card">
+          <div class="training-icon"><i class="fa-solid fa-certificate"></i></div>
+          <span class="training-type">CERTIFICATION</span>
+          <h3>IT-ITES Sector Skill Council</h3>
+          <h5>NASSCOM</h5>
+          <p class="training-duration"><i class="fa-regular fa-calendar"></i> 2021 – 2022</p>
+          <p>Certification in the IT-ITES sector under the Sector Skill Council, NASSCOM.</p>
+          <div class="training-tags"><span>IT-ITES</span><span>NASSCOM</span><span>Sector Skill Council</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- EXPERTISE -->
 <section id="expertise" class="expertise-section reveal">
   <div class="container">
-    <h2 class="section-title">Expertise</h2>
+    <h2 class="section-title">What I Can Do</h2>
     <p class="section-subtitle">Building clean, meaningful digital experiences through thoughtful code and intuitive design.</p>
     <div class="row g-4 reveal-stagger">
       <div class="col-md-6 col-lg-3">
